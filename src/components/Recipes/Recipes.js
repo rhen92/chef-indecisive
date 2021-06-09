@@ -1,5 +1,6 @@
 import React from 'react';
 import './Recipes.css';
+import Ingredients from '../Ingredients/Ingredients';
 
 const Recipes = ({ recipes, error }) => {
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
@@ -9,12 +10,11 @@ const Recipes = ({ recipes, error }) => {
         <img src={randomRecipe.image} alt={randomRecipe.label} />
         <p>{randomRecipe.source}</p>
         <p>{randomRecipe.yield}</p>
-        <ul>
-          <li>{randomRecipe.ingredients.map(ingredient => ingredient)}</li>
-        </ul>
+        <p><b>Ingredients:</b></p>
+        <Ingredients ingredients={randomRecipe.ingredients} />
         <p>{randomRecipe.calories}</p>
         <p>{randomRecipe.cuisineType}</p>
-        <p>{randomRecipe.url}</p>
+        <a href={randomRecipe.url} target="_blank">Click here to open the recipe in a new tab</a>
       </article>
     ) : <h2>Loading recipe...</h2>
 }
