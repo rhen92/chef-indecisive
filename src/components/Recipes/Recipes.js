@@ -1,5 +1,4 @@
 import React from 'react';
-import RecipeDetails from '../RecipeDetails/RecipeDetails';
 import './Recipes.css';
 
 const Recipes = ({ recipes }) => {
