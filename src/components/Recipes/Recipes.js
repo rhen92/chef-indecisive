@@ -4,26 +4,20 @@ import './Recipes.css';
 
 const Recipes = ({ recipes }) => {
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-  const randomRecipeInfo = randomRecipe.map(recipe => {
     return (
-      <RecipeDetails
-        name={recipe.label}
-        image={recipe.image}
-        source={recipe.source}
-        amount={recipe.yield}
-        ingredients={recipe.ingredients}
-        calories={recipe.calories}
-        cuisineType={recipe.cuisineType}
-        link={recipe.url}
-        />
+      <article>
+        <h2>{randomRecipe.label}</h2>
+        <img src={randomRecipe.image} alt={randomRecipe.label} />
+        <p>{randomRecipe.source}</p>
+        <p>{randomRecipe.yield}</p>
+        <ul>
+          <li>{randomRecipe.ingredients.map(ingredient => ingredient)}</li>
+        </ul>
+        <p>{randomRecipe.calories}</p>
+        <p>{randomRecipe.cuisineType}</p>
+        <p>{randomRecipe.url}</p>
+      </article>
     )
-  })
-
-  return (
-    <div>
-      {randomRecipeInfo}
-    </div>
-  )
 }
 
 export default Recipes;
