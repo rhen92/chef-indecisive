@@ -10,7 +10,7 @@ const Recipes = ({ recipes }) => {
         name={recipe.label}
         image={recipe.image}
         source={recipe.source}
-        yield={recipe.yield}
+        amount={recipe.yield}
         ingredients={recipe.ingredients}
         calories={recipe.calories}
         cuisineType={recipe.cuisineType}
