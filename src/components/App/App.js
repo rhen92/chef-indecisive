@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { getRecipes } from '../../api-calls';
+import Recipes from '../Recipes/Recipes';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -29,7 +31,6 @@ class App extends Component {
         return obj;
       }, []);
       this.setState({recipes: updatedRecipes});
-      console.log(this.state.recipes)
     } catch (e) {
       this.setState({error: 'Unable to get your recipe'})
     }
@@ -37,9 +38,20 @@ class App extends Component {
 
   render() {
     return (
-      <main className="App">
-      <h1>Hello</h1>
-      </main>
+      <React.Fragment className="App">
+      {!this.state.recipes && !this.state.error && <h2>Loading recipe...</h2>}
+      {this.state.error && <h2>{this.state.error}</h2>}
+      <Switch>
+        <Route exact path="/" render={() => {
+          return (
+            <main>
+              <h1>Chef Indecisive</h1>
+              <Recipes recipes={this.state.recipes} />
+            </main>
+          )
+        }} />
+      </Switch>
+      </React.Fragment>
     );
   }
 }
