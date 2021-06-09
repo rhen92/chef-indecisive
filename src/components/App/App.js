@@ -38,13 +38,13 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment className="App">
-      {!this.state.recipes && !this.state.error && <h2>Loading recipe...</h2>}
-      {this.state.error && <h2>{this.state.error}</h2>}
+      <React.Fragment>
       <Switch>
+      {this.state.error && <h2>{this.state.error}</h2>}
+      {!this.state.recipes && <h2>Loading recipe...</h2>}
         <Route exact path="/" render={() => {
           return (
-            <main>
+            <main className="App">
               <h1>Chef Indecisive</h1>
               <Recipes recipes={this.state.recipes} />
             </main>
