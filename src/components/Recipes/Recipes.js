@@ -15,6 +15,8 @@ const Recipes = ({ recipes, error }) => {
         <p><b>Calories:</b> {Math.round(randomRecipe.calories)}</p>
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target="_blank">Click here to open the recipe in a new tab</a>
+        <button>Show Different Recipe</button>
+        <button>Favorite Recipe</button>
       </article>
     ) : <h2>Loading recipe...</h2>
 }
