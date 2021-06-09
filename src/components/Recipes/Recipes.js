@@ -1,9 +1,9 @@
 import React from 'react';
 import './Recipes.css';
 
-const Recipes = ({ recipes }) => {
+const Recipes = ({ recipes, error }) => {
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-    return (
+    return recipes.length ? (
       <article>
         <h2>{randomRecipe.label}</h2>
         <img src={randomRecipe.image} alt={randomRecipe.label} />
@@ -16,7 +16,7 @@ const Recipes = ({ recipes }) => {
         <p>{randomRecipe.cuisineType}</p>
         <p>{randomRecipe.url}</p>
       </article>
-    )
+    ) : <h2>Loading recipe...</h2>
 }
 
 export default Recipes;
