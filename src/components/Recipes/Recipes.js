@@ -12,7 +12,7 @@ const Recipes = ({ recipes, error }) => {
         <p><b>Serves:</b> {randomRecipe.yield}</p>
         <p><b>Ingredients:</b></p>
         <Ingredients ingredients={randomRecipe.ingredients} />
-        <p><b>Calories:</b> {randomRecipe.calories}</p>
+        <p><b>Calories:</b> {Math.round(randomRecipe.calories)}</p>
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target="_blank">Click here to open the recipe in a new tab</a>
       </article>
