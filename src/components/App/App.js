@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       recipes: [],
+      randomRecipe: null,
       error: ''
     }
   }
@@ -32,10 +33,19 @@ class App extends Component {
           return obj;
         }, []);
         this.setState({recipes: updatedRecipes});
-
+        this.changeRecipe()
       })
     .catch(error => this.setState({error: 'Something is wrong'}))
 
+  }
+
+  changeRecipe = () => {
+    const differentRecipe = this.state.recipes[Math.floor(Math.random() * this.state.recipes.length)];
+    this.setState({randomRecipe: differentRecipe})
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
   render() {
@@ -46,7 +56,7 @@ class App extends Component {
           return (
             <section className="App">
               <NavBar />
-              <Recipes recipes={this.state.recipes} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
         }} />
