@@ -51,7 +51,9 @@ class App extends Component {
   }
 
   favoriteRecipe = () => {
-    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe], showMessage: true})
+    !this.state.favoriteRecipes.includes(this.state.randomRecipe) ?
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe], showMessage: true}) :
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes]})
   }
 
   render() {
