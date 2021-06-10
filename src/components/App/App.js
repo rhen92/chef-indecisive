@@ -14,6 +14,7 @@ class App extends Component {
       randomRecipe: null,
       favoriteRecipes: [],
       showMessage: false,
+      onFavoritesPage: false,
       error: ''
     }
   }
@@ -57,6 +58,10 @@ class App extends Component {
     this.setState({favoriteRecipes: [...this.state.favoriteRecipes]})
   }
 
+  updatePage = () => {
+    this.setState({onFavoritesPage: !this.state.onFavoritesPage})
+  }
+
   render() {
     return (
       <main>
@@ -64,13 +69,13 @@ class App extends Component {
         <Route exact path="/" render={() => {
           return (
             <section className="App">
-              <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <NavBar favoritePage={this.updatePage} />
+              <Recipes randomRecipe={this.state.randomRecipe} whichPage ={this.state.onFavoritesPage} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
         }} />
         <Route path="/favoriteRecipes" render={() => {
-          return <Favorites favorites={this.state.favoriteRecipes}/>
+          return <Favorites favorites={this.state.favoriteRecipes} changePage={this.updatePage} whichPage ={this.state.onFavoritesPage} />
         }} />
       </Switch>
       </main>
