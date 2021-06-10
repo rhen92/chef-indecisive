@@ -14,7 +14,7 @@ const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, erro
         <p><b>Calories:</b> {Math.round(randomRecipe.calories)}</p>
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target='_blank' rel='noreferrer'>Click here to open the recipe in a new tab</a>
-        {showMessage && <p>This recipe has been added to your favorites list...now get cooking!</p>}
+        {showMessage && <p><b>This recipe has been added to your favorites list...now get cooking!</b></p>}
         <div>
           <button className='button-styling' onClick={event => changeRecipe(event)}>Show Different Recipe</button>
           <button className='button-styling' onClick={event => favoriteRecipe(event)}>Favorite Recipe</button>
