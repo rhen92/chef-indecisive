@@ -2,9 +2,8 @@ import React from 'react';
 import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 
-const Recipes = ({ recipes, error }) => {
-  const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-    return recipes.length ? (
+const Recipes = ({ randomRecipe, changeRecipe, error }) => {
+    return randomRecipe ? (
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
@@ -16,7 +15,7 @@ const Recipes = ({ recipes, error }) => {
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target='_blank' rel='noreferrer'>Click here to open the recipe in a new tab</a>
         <div>
-          <button className='button-styling'>Show Different Recipe</button>
+          <button className='button-styling' onClick={event => changeRecipe(event)}>Show Different Recipe</button>
           <button className='button-styling'>Favorite Recipe</button>
         </div>
       </article>
