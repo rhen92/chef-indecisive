@@ -4,6 +4,7 @@ import Ingredients from '../Ingredients/Ingredients';
 
 const Recipes = ({ randomRecipe, whichPage, favoriteRecipe, showMessage, changeRecipe, error }) => {
     return randomRecipe ? (
+      <div className='card-styling'>
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
@@ -20,6 +21,7 @@ const Recipes = ({ randomRecipe, whichPage, favoriteRecipe, showMessage, changeR
           <button className='button-styling' onClick={event => favoriteRecipe(event)}>Favorite Recipe</button>
         </div>}
       </article>
+      </div>
     ) : <h2>Loading recipe...</h2>
 }
 
