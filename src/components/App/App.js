@@ -3,6 +3,7 @@ import './App.css';
 import { getRecipes } from '../../api-calls';
 import Recipes from '../Recipes/Recipes';
 import NavBar from '../NavBar/NavBar';
+import Favorites from '../Favorites/Favorites';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -67,6 +68,9 @@ class App extends Component {
               <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
+        }} />
+        <Route path="/favoriteRecipes" render={() => {
+          return <Favorites favorites={this.state.favoriteRecipes}/>
         }} />
       </Switch>
       </main>
