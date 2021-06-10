@@ -61,7 +61,7 @@ class App extends Component {
           return (
             <section className="App">
               <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
         }} />
