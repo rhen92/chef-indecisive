@@ -2,7 +2,7 @@ import React from 'react';
 import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 
-const Recipes = ({ randomRecipe, changeRecipe, error }) => {
+const Recipes = ({ randomRecipe, favoriteRecipe, changeRecipe, error }) => {
     return randomRecipe ? (
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
@@ -16,7 +16,7 @@ const Recipes = ({ randomRecipe, changeRecipe, error }) => {
         <a href={randomRecipe.url} target='_blank' rel='noreferrer'>Click here to open the recipe in a new tab</a>
         <div>
           <button className='button-styling' onClick={event => changeRecipe(event)}>Show Different Recipe</button>
-          <button className='button-styling'>Favorite Recipe</button>
+          <button className='button-styling' onClick={event => favoriteRecipe(event)}>Favorite Recipe</button>
         </div>
       </article>
     ) : <h2>Loading recipe...</h2>
