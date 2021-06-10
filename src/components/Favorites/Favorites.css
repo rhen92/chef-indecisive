@@ -1,0 +1,11 @@
+.favorite-page {
+  background-color: #FFF8E1
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  font-size: 5px;
+  margin-left: 20px;
+}
