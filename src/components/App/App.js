@@ -12,6 +12,7 @@ class App extends Component {
       recipes: [],
       randomRecipe: null,
       favoriteRecipes: [],
+      showMessage: false,
       error: ''
     }
   }
@@ -42,7 +43,7 @@ class App extends Component {
 
   changeRecipe = () => {
     const differentRecipe = this.state.recipes[Math.floor(Math.random() * this.state.recipes.length)];
-    this.setState({randomRecipe: differentRecipe})
+    this.setState({randomRecipe: differentRecipe, showMessage: false})
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -50,7 +51,7 @@ class App extends Component {
   }
 
   favoriteRecipe = () => {
-    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe]})
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe], showMessage: true})
   }
 
   render() {
@@ -61,7 +62,7 @@ class App extends Component {
           return (
             <section className="App">
               <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
         }} />
