@@ -7,7 +7,7 @@ const Recipes = ({ recipes, error }) => {
     return recipes.length ? (
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
-        <img src={randomRecipe.image} alt={randomRecipe.label} />
+        <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
         <p><b>Recipe Source:</b> {randomRecipe.source}</p>
         <p><b>Serves:</b> {randomRecipe.yield}</p>
         <p><b>Ingredients:</b></p>
@@ -15,8 +15,10 @@ const Recipes = ({ recipes, error }) => {
         <p><b>Calories:</b> {Math.round(randomRecipe.calories)}</p>
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target='_blank' rel='noreferrer'>Click here to open the recipe in a new tab</a>
-        <button>Show Different Recipe</button>
-        <button>Favorite Recipe</button>
+        <div>
+          <button className='button-styling'>Show Different Recipe</button>
+          <button className='button-styling'>Favorite Recipe</button>
+        </div>
       </article>
     ) : <h2>Loading recipe...</h2>
 }
