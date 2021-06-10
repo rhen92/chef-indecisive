@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Ingredients = ({ ingredients }) => {
+  let id = 0
   const listOfIngredients = ingredients.map(ingredient => {
     return (
-      <ul>
+      <ul key={id++}>
       <li>{ingredient}</li>
       </ul>
     )
