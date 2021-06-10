@@ -49,6 +49,10 @@ class App extends Component {
     });
   }
 
+  favoriteRecipe = () => {
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe]})
+  }
+
   render() {
     return (
       <main>
