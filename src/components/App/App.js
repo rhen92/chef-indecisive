@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       recipes: [],
       randomRecipe: null,
+      favoriteRecipes: [],
       error: ''
     }
   }
