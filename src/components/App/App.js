@@ -58,6 +58,11 @@ class App extends Component {
     this.setState({favoriteRecipes: [...this.state.favoriteRecipes]})
   }
 
+  deleteRecipe = (recipeName) => {
+    const filteredRecipes = this.state.favoriteRecipes.filter(recipe => recipe.label !== recipeName);
+    this.setState({favoriteRecipes: filteredRecipes})
+  }
+
   updatePage = () => {
     this.setState({onFavoritesPage: !this.state.onFavoritesPage})
   }
@@ -70,7 +75,7 @@ class App extends Component {
           return (
             <section className="App">
               <NavBar favoritePage={this.updatePage} />
-              <Recipes randomRecipe={this.state.randomRecipe} whichPage ={this.state.onFavoritesPage} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} deleteRecipe={this.deleteRecipe} whichPage ={this.state.onFavoritesPage} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
         }} />

@@ -2,10 +2,11 @@ import React from 'react';
 import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 
-const Recipes = ({ randomRecipe, whichPage, favoriteRecipe, showMessage, changeRecipe, error }) => {
+const Recipes = ({ randomRecipe, deleteRecipe, whichPage, favoriteRecipe, showMessage, changeRecipe, error }) => {
     return randomRecipe ? (
       <div className='card-styling'>
       <article className='recipe-card'>
+      {whichPage && <i className='fas fa-times-circle' ></i>}
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
         <p><b>Recipe Source:</b> {randomRecipe.source}</p>
