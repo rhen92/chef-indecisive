@@ -4,9 +4,10 @@ import Recipes from '../Recipes/Recipes';
 import { Link } from 'react-router-dom';
 
 const Favorites = ({ favorites, whichPage, changePage }) => {
+  let id = 1;
   const favoriteRecipeCards = favorites.map(favorite => {
     return (
-      <Recipes randomRecipe={favorite} whichPage={whichPage}/>
+      <Recipes randomRecipe={favorite} whichPage={whichPage} key={id++} />
     )
   })
 
