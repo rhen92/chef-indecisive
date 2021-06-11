@@ -4,7 +4,7 @@ import './FavoriteRecipeCard.css';
 const FavoriteRecipeCard = ({ label, image, source, serves, ingredients, calories, cuisineType, url, deleteRecipe }) => {
   return (
     <article className='favorite-card'>
-      <i className='fas fa-times-circle' onClick={() => deleteRecipe(label)} />
+      <i className='fas fa-times-circle' aria-role='delete button' onClick={() => deleteRecipe(label)} />
       <div>
         <img className='favorite-food-pic' src={image} alt={label} />
       </div>
