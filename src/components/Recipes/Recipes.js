@@ -1,6 +1,7 @@
 import React from 'react';
 import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
+import PropTypes from 'prop-types';
 
 const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, error }) => {
     return randomRecipe ? (
@@ -26,3 +27,11 @@ const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, erro
 }
 
 export default Recipes;
+
+Recipes.propTypes = {
+  randomRecipe: PropTypes.object,
+  favoriteRecipe: PropTypes.func,
+  showMessage: PropTypes.bool,
+  changeRecipe: PropTypes.func,
+  error: PropTypes.string
+}
