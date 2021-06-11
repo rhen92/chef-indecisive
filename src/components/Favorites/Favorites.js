@@ -16,6 +16,7 @@ const Favorites = ({ favorites, deleteRecipe }) => {
        ingredients={favorite.ingredients}
        calories={favorite.calories}
        cuisineType={favorite.cuisineType}
+       url={favorite.url}
        deleteRecipe={deleteRecipe}
        />
     )
