@@ -27,9 +27,7 @@ const Favorites = ({ favorites, deleteRecipe }) => {
     <Link to='/'>
       <button className='button-styling'>Go back to Home</button>
     </Link>
-    <div className='favorites-grid'>
       {favoriteRecipeCards}
-    </div>
     </React.Fragment>
   )
 }
