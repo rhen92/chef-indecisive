@@ -3,6 +3,12 @@
   flex-direction: column;
   align-items: center;
   font-size: 18px;
+  border: 5px ridge #FF8F00;
+  width: 90%;
+}
+
+.card-styling {
+  margin-left: 10%;
 }
 
 .food-pic {
@@ -24,4 +30,14 @@
 .button-styling:hover {
   box-shadow: #FFA000 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.fas {
+  font-size: 30px;
+  align-self: flex-start;
+  margin: 5px 0 0 5px ;
+}
+
+h2 {
+  margin-top: 5px
 }

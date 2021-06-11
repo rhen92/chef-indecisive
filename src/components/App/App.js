@@ -3,6 +3,7 @@ import './App.css';
 import { getRecipes } from '../../api-calls';
 import Recipes from '../Recipes/Recipes';
 import NavBar from '../NavBar/NavBar';
+import Favorites from '../Favorites/Favorites';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -11,6 +12,9 @@ class App extends Component {
     this.state = {
       recipes: [],
       randomRecipe: null,
+      favoriteRecipes: [],
+      showMessage: false,
+      onFavoritesPage: false,
       error: ''
     }
   }
@@ -41,11 +45,26 @@ class App extends Component {
 
   changeRecipe = () => {
     const differentRecipe = this.state.recipes[Math.floor(Math.random() * this.state.recipes.length)];
-    this.setState({randomRecipe: differentRecipe})
+    this.setState({randomRecipe: differentRecipe, showMessage: false})
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
+
+  favoriteRecipe = () => {
+    !this.state.favoriteRecipes.includes(this.state.randomRecipe) ?
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes, this.state.randomRecipe], showMessage: true}) :
+    this.setState({favoriteRecipes: [...this.state.favoriteRecipes]})
+  }
+
+  deleteRecipe = (recipeName) => {
+    const filteredRecipes = this.state.favoriteRecipes.filter(recipe => recipe.label !== recipeName);
+    this.setState({favoriteRecipes: filteredRecipes})
+  }
+
+  updatePage = () => {
+    this.setState({onFavoritesPage: !this.state.onFavoritesPage})
   }
 
   render() {
@@ -55,10 +74,13 @@ class App extends Component {
         <Route exact path="/" render={() => {
           return (
             <section className="App">
-              <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <NavBar favoritePage={this.updatePage} />
+              <Recipes randomRecipe={this.state.randomRecipe} deleteRecipe={this.deleteRecipe} whichPage ={this.state.onFavoritesPage} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
             </section>
           )
+        }} />
+        <Route path="/favoriteRecipes" render={() => {
+          return <Favorites favorites={this.state.favoriteRecipes} changePage={this.updatePage} whichPage ={this.state.onFavoritesPage} />
         }} />
       </Switch>
       </main>
