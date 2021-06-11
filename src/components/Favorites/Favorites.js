@@ -22,14 +22,14 @@ const Favorites = ({ favorites, deleteRecipe }) => {
   })
 
   return (
-    <div className='favorite-page'>
+    <React.Fragment>
     <Link to='/'>
       <button className='button-styling'>Go back to Home</button>
     </Link>
     <div className='favorites-grid'>
       {favoriteRecipeCards}
     </div>
-    </div>
+    </React.Fragment>
   )
 }
 
