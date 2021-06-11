@@ -35,3 +35,17 @@
 h2 {
   margin-top: 5px
 }
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
+
+@media screen and (max-width: 425px) {
+  .food-pic {
+    width: 75%
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h2 {
+    text-align: center;
+  }
+}
