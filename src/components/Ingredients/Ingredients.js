@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Ingredients = ({ ingredients }) => {
   let id = 0
@@ -17,3 +18,7 @@ const Ingredients = ({ ingredients }) => {
 }
 
 export default Ingredients;
+
+Ingredients.propTypes = {
+  ingredients: PropTypes.array
+}
