@@ -59,7 +59,7 @@ class App extends Component {
 
   deleteRecipe = (recipeName) => {
     const filteredRecipes = this.state.favoriteRecipes.filter(recipe => recipe.label !== recipeName);
-    this.setState({favoriteRecipes: filteredRecipes})
+    this.setState({favoriteRecipes: filteredRecipes, showMessage: false})
   }
 
   render() {
