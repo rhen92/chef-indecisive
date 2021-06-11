@@ -35,3 +35,7 @@ Recipes.propTypes = {
   changeRecipe: PropTypes.func,
   error: PropTypes.string
 }
+
+Recipes.defaultProps = {
+  randomRecipe: true
+}
