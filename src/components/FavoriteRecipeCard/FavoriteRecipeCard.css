@@ -30,3 +30,57 @@
   left:5;
   opacity: 0.25
 }
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
+
+@media screen and (max-width: 1024px) {
+  .favorite-card {
+    margin-left: 250px
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .favorite-card {
+    margin-left: 20px;
+    width: auto;
+    height: 85vh;
+    font-size: 19px
+  }
+
+  .favorite-food-pic {
+    height: 80%;
+    width: 90%
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .favorite-card {
+    height: 90vh
+  }
+
+  .favorite-food-pic {
+    width: 88%;
+    height: 85%
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .favorite-card {
+    height: 100vh;
+    margin-left: 10px
+  }
+
+  .favorite-food-pic {
+    height: 95%
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .favorite-card {
+    height: 120vh;
+  }
+
+  .favorite-food-pic {
+    height: 115%
+  }
+}
