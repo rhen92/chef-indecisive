@@ -12,24 +12,23 @@ const Favorites = ({ favorites, deleteRecipe }) => {
        label={favorite.label}
        image={favorite.image}
        source={favorite.source}
-       serves={favorite.yields}
+       serves={favorite.yield}
        ingredients={favorite.ingredients}
        calories={favorite.calories}
        cuisineType={favorite.cuisineType}
+       url={favorite.url}
        deleteRecipe={deleteRecipe}
        />
     )
   })
 
   return (
-    <div className='favorite-page'>
+    <React.Fragment>
     <Link to='/'>
       <button className='button-styling'>Go back to Home</button>
     </Link>
-    <div className='favorites-grid'>
       {favoriteRecipeCards}
-    </div>
-    </div>
+    </React.Fragment>
   )
 }
 

@@ -1,0 +1,86 @@
+.fa-times-circle {
+  font-size: 25px;
+  margin: 0 0 5px 0;
+  cursor: pointer;
+}
+
+.favorite-card {
+  background: #fff;
+  padding: 2%;
+  height: 55vh;
+  width: 50%;
+  margin: 0 15px 15px 350px;
+  box-shadow: 3px 3px 3px #878D96;
+  border-radius: 10px
+}
+
+.favorite-card:hover {
+  transition: all 0.2s ease-out;
+   box-shadow: 10px 10px 10px rgba(38, 38, 38, 0.2);
+   top: -4px;
+   border: 1px solid #403F3E;
+   background-color: white;
+
+}
+
+.favorite-food-pic {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left:5;
+  opacity: 0.25
+}
+
+/*~~~~~~MEDIA QUERIES~~~~~~*/
+
+@media screen and (max-width: 1024px) {
+  .favorite-card {
+    margin-left: 250px
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .favorite-card {
+    margin-left: 20px;
+    width: auto;
+    height: 85vh;
+    font-size: 19px
+  }
+
+  .favorite-food-pic {
+    height: 80%;
+    width: 90%
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .favorite-card {
+    height: 90vh
+  }
+
+  .favorite-food-pic {
+    width: 88%;
+    height: 85%
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .favorite-card {
+    height: 100vh;
+    margin-left: 10px
+  }
+
+  .favorite-food-pic {
+    height: 95%
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .favorite-card {
+    height: 120vh;
+  }
+
+  .favorite-food-pic {
+    height: 115%
+  }
+}
