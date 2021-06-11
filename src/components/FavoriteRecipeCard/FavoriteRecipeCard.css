@@ -1,5 +1,22 @@
-.fas {
-  font-size: 30px;
-  align-self: flex-start;
-  margin: 5px 0 0 5px ;
+.fa-times-circle {
+  font-size: 25px;
+  margin: 0 0 5px 0;
+  cursor: pointer;
+}
+
+.favorite-card {
+  background: #fff;
+  padding: 2%;
+  height: 55vh;
+  width: 50%;
+  margin: 0 15px 15px 350px;
+  box-shadow: 5px 5px 5px #878D96;
+}
+
+.favorite-food-pic {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left:5;
+  opacity: 0.25
 }
