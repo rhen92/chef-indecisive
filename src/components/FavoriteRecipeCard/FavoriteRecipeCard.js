@@ -1,5 +1,6 @@
 import React from 'react';
 import './FavoriteRecipeCard.css';
+import PropTypes from 'prop-types';
 
 const FavoriteRecipeCard = ({ label, image, source, serves, ingredients, calories, cuisineType, url, deleteRecipe }) => {
   return (
@@ -20,3 +21,15 @@ const FavoriteRecipeCard = ({ label, image, source, serves, ingredients, calorie
 }
 
 export default FavoriteRecipeCard;
+
+FavoriteRecipeCard.propTypes = {
+  label: PropTypes.string,
+  image: PropTypes.string,
+  source: PropTypes.string,
+  serves: PropTypes.number,
+  ingredients: PropTypes.array,
+  calories: PropTypes.number,
+  cuisineType: PropTypes.array,
+  url: PropTypes.string,
+  deleteRecipe: PropTypes.func,
+}
