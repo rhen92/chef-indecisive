@@ -2,11 +2,10 @@ import React from 'react';
 import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 
-const Recipes = ({ randomRecipe, deleteRecipe, whichPage, favoriteRecipe, showMessage, changeRecipe, error }) => {
+const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, error }) => {
     return randomRecipe ? (
       <div className='card-styling'>
       <article className='recipe-card'>
-      {whichPage && <i className='fas fa-times-circle' ></i>}
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
         <p><b>Recipe Source:</b> {randomRecipe.source}</p>
@@ -17,10 +16,10 @@ const Recipes = ({ randomRecipe, deleteRecipe, whichPage, favoriteRecipe, showMe
         <p><b>Cuisine Type:</b> {randomRecipe.cuisineType}</p>
         <a href={randomRecipe.url} target='_blank' rel='noreferrer'>Click here to open the recipe in a new tab</a>
         {showMessage && <p><b>This recipe has been added to your favorites list...now get cooking!</b></p>}
-        {!whichPage && <div>
+        <div>
           <button className='button-styling' onClick={event => changeRecipe(event)}>Show Different Recipe</button>
           <button className='button-styling' onClick={event => favoriteRecipe(event)}>Favorite Recipe</button>
-        </div>}
+        </div>
       </article>
       </div>
     ) : <h2>Loading recipe...</h2>
