@@ -10,7 +10,17 @@
   height: 55vh;
   width: 50%;
   margin: 0 15px 15px 350px;
-  box-shadow: 5px 5px 5px #878D96;
+  box-shadow: 3px 3px 3px #878D96;
+  border-radius: 10px
+}
+
+.favorite-card:hover {
+  transition: all 0.2s ease-out;
+   box-shadow: 10px 10px 10px rgba(38, 38, 38, 0.2);
+   top: -4px;
+   border: 1px solid #403F3E;
+   background-color: white;
+
 }
 
 .favorite-food-pic {
