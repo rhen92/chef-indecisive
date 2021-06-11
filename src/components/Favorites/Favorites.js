@@ -2,6 +2,7 @@ import React from 'react';
 import './Favorites.css';
 import FavoriteRecipeCard from '../FavoriteRecipeCard/FavoriteRecipeCard';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Favorites = ({ favorites, deleteRecipe }) => {
   let id = 1;
@@ -33,3 +34,8 @@ const Favorites = ({ favorites, deleteRecipe }) => {
 }
 
 export default Favorites;
+
+Favorites.propTypes = {
+  favorites: PropTypes.array,
+  deleteRecipe: PropTypes.func
+}
