@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, error }) => {
     return randomRecipe ? (
       <div className='card-styling'>
+      {error && <h2>{error}</h2>}
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
