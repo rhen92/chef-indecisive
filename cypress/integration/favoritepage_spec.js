@@ -57,4 +57,12 @@ describe('Favorite Page', () => {
           .should('have.attr', 'rel', 'noreferrer')
       })
   })
+
+  it('should allow card to be deleted when x is clicked', () => {
+    cy.wait(1000)
+      .get('button').eq(2).click()
+      .get('button').eq(0).click()
+      .get('i').click()
+      .get('body').should('not.have.value')
+  })
 })
