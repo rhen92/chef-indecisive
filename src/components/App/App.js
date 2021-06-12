@@ -4,7 +4,7 @@ import { getRecipes } from '../../api-calls';
 import Recipes from '../Recipes/Recipes';
 import NavBar from '../NavBar/NavBar';
 import Favorites from '../Favorites/Favorites';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends Component {
       randomRecipe: null,
       favoriteRecipes: [],
       showMessage: false,
-      error: ''
+      error: null,
     }
   }
 
@@ -38,7 +38,9 @@ class App extends Component {
         this.setState({recipes: updatedRecipes});
         this.changeRecipe()
       })
-    .catch(error => this.setState({error: 'Something is wrong'}))
+    .catch(error => {
+      this.setState({error: 'Unable to get a recipe try again later'})
+      })
 
   }
 
@@ -65,18 +67,20 @@ class App extends Component {
   render() {
     return (
       <main>
+      {this.state.error && <h2>{this.state.error}</h2>}
       <Switch>
         <Route exact path="/" render={() => {
           return (
             <section className="App">
               <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} />
             </section>
           )
         }} />
         <Route path="/favoriteRecipes" render={() => {
           return <Favorites favorites={this.state.favoriteRecipes} deleteRecipe={this.deleteRecipe} />
         }} />
+        <Redirect from="/*" to="/" />
       </Switch>
       </main>
     );

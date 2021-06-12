@@ -3,7 +3,7 @@ import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 import PropTypes from 'prop-types';
 
-const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, error }) => {
+const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe }) => {
     return randomRecipe ? (
       <div className='card-styling'>
       <article className='recipe-card'>
@@ -33,7 +33,6 @@ Recipes.propTypes = {
   favoriteRecipe: PropTypes.func,
   showMessage: PropTypes.bool,
   changeRecipe: PropTypes.func,
-  error: PropTypes.string
 }
 
 Recipes.defaultProps = {
