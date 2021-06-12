@@ -25,4 +25,10 @@ describe('Home Page', () => {
       })
   })
 
+  it('should show p tag when favorite recipe button is clicked', () => {
+    cy.wait(1000)
+      .get('button').eq(2).click()
+      .get('p').eq(5).contains('This recipe has been added to your favorites list...now get cooking!')
+  })
+
 })
