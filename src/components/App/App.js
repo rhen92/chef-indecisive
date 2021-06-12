@@ -14,7 +14,7 @@ class App extends Component {
       randomRecipe: null,
       favoriteRecipes: [],
       showMessage: false,
-      error: ''
+      error: null,
     }
   }
 
@@ -38,7 +38,10 @@ class App extends Component {
         this.setState({recipes: updatedRecipes});
         this.changeRecipe()
       })
-    .catch(error => this.setState({error: 'Unable to get a recipe'}))
+    .catch(error => {
+      console.log(error)
+      this.setState({error: 'Unable to get a recipe'})
+      console.log(this.state.error)})
 
   }
 
@@ -65,12 +68,13 @@ class App extends Component {
   render() {
     return (
       <main>
+      {this.state.error && <h2>{this.state.error}</h2>}
       <Switch>
         <Route exact path="/" render={() => {
           return (
             <section className="App">
               <NavBar />
-              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} error={this.state.error} />
+              <Recipes randomRecipe={this.state.randomRecipe} favoriteRecipe={this.favoriteRecipe} showMessage={this.state.showMessage} changeRecipe={this.changeRecipe} />
             </section>
           )
         }} />

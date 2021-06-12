@@ -3,10 +3,9 @@ import './Recipes.css';
 import Ingredients from '../Ingredients/Ingredients';
 import PropTypes from 'prop-types';
 
-const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe, error }) => {
+const Recipes = ({ randomRecipe, favoriteRecipe, showMessage, changeRecipe }) => {
     return randomRecipe ? (
       <div className='card-styling'>
-      {error && <h2>{error}</h2>}
       <article className='recipe-card'>
         <h2>{randomRecipe.label}</h2>
         <img className='food-pic' src={randomRecipe.image} alt={randomRecipe.label} />
@@ -34,7 +33,6 @@ Recipes.propTypes = {
   favoriteRecipe: PropTypes.func,
   showMessage: PropTypes.bool,
   changeRecipe: PropTypes.func,
-  error: PropTypes.string
 }
 
 Recipes.defaultProps = {
