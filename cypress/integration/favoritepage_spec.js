@@ -9,4 +9,10 @@ describe('Favorite Page', () => {
       .url().should('eq', 'http://localhost:3000/favoriteRecipes')
       .get('button').contains('Go back to Home')
   })
+
+  it('should go back to home when button is clicked', () => {
+    cy.get('button').eq(0).click()
+      .get('button').click()
+      .url().should('eq', 'http://localhost:3000/')
+  })
 })
