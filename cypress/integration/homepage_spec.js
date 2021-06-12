@@ -13,7 +13,57 @@ describe('Home Page', () => {
     cy.get('h2').contains('Loading recipe...')
   })
 
-  it('should show a different recipe show different recipe button is clicked', () => {
+  it('should show recipe', () => {
+    cy.wait(1000)
+      .get('h2').invoke('text')
+      .then((text1) => {
+        cy.get('h2').contains(text1)
+      })
+      .get('img').invoke('attr', 'src')
+      .then((src1) => {
+        cy.get('img').should('have.attr', 'src', src1)
+      })
+      .get('p').eq(0).invoke('text')
+      .then((text1) => {
+        cy.get('p').eq(0).contains(text1)
+      })
+      .get('p').eq(1).invoke('text')
+      .then((text1) => {
+        cy.get('p').eq(1).contains(text1)
+      })
+      .get('p').eq(2).contains('Ingredients')
+      .get('li').eq(0).invoke('text')
+      .then((text1) => {
+        cy.get('li').eq(0).contains(text1)
+      })
+      .get('li').eq(1).invoke('text')
+      .then((text1) => {
+        cy.get('li').eq(1).contains(text1)
+      })
+      .get('li').eq(2).invoke('text')
+      .then((text1) => {
+        cy.get('li').eq(2).contains(text1)
+      })
+      .get('p').eq(3).invoke('text')
+      .then((text1) => {
+        cy.get('p').eq(3).contains(text1)
+      })
+      .get('p').eq(4).invoke('text')
+      .then((text1) => {
+        cy.get('p').eq(4).contains(text1)
+      })
+      .get('a').invoke('attr', 'href')
+      .then((href1) => {
+        cy.get('a').should('have.attr', 'href', href1)
+          .contains('Click here to open the recipe in a new tab')
+          .should('have.attr', 'target', '_blank')
+          .should('have.attr', 'rel', 'noreferrer')
+      })
+      .get('button').eq(1).contains('Show Different Recipe')
+      .get('button').eq(2).contains('Favorite Recipe')
+  })
+
+  it('should show a different recipe when show different recipe button is clicked', () => {
     cy.wait(1000)
       .get('h2').invoke('text')
       .then((text1) => {
