@@ -39,9 +39,8 @@ class App extends Component {
         this.changeRecipe()
       })
     .catch(error => {
-      console.log(error)
-      this.setState({error: 'Unable to get a recipe'})
-      console.log(this.state.error)})
+      this.setState({error: 'Unable to get a recipe try again later'})
+      })
 
   }
 
