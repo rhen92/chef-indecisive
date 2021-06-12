@@ -38,7 +38,7 @@ class App extends Component {
         this.setState({recipes: updatedRecipes});
         this.changeRecipe()
       })
-    .catch(error => this.setState({error: 'Something is wrong'}))
+    .catch(error => this.setState({error: 'Unable to get a recipe'}))
 
   }
 
