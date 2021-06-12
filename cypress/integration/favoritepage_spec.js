@@ -20,6 +20,7 @@ describe('Favorite Page', () => {
     cy.wait(1000)
       .get('button').eq(2).click()
       .get('button').eq(0).click()
+      .get('i')
       .get('h2').invoke('text')
       .then((text1) => {
         cy.get('h2').contains(text1)
