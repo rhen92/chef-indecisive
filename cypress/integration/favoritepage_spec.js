@@ -65,4 +65,17 @@ describe('Favorite Page', () => {
       .get('i').click()
       .get('body').should('not.have.value')
   })
+
+  it('should redirect user if type in incorrect url path', () => {
+    cy.get('button').eq(0).click()
+      .visit('http://localhost:3000/gajksdgajsdhgk')
+      .url().should('eq', 'http://localhost:3000/')
+      .get('h1').contains('Chef Indecisive')
+      .get('button').eq(0).contains('Head to Favorites')
+      .wait(1000)
+      .get('h2').invoke('text')
+      .then((text1) => {
+        cy.get('h2').contains(text1)
+      })  
+  })
 })
